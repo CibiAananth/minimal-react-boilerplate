@@ -1,12 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import reportError from "utils/crashReporter";
+import App from "./App";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const monitorError = () => {
+  window.onerror = (message, file, line, column, errorObject) => {
+    const stack = errorObject ? errorObject.stack : null;
+    reportError(stack);
+    return false;
+  };
+};
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+monitorError();
+ReactDOM.render(<App />, document.getElementById("root"));
