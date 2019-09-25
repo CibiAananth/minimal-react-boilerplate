@@ -1,7 +1,7 @@
-import SecureLS from "secure-ls";
+import SecureLS from 'secure-ls';
 
 const secureLs = new SecureLS({
-  encodingType: "aes",
+  encodingType: 'aes',
   isCompression: true,
   encryptionSecret: process.env.REACT_ENCKEY
 });
@@ -11,7 +11,7 @@ function storageFactory() {
 
   function isSupported() {
     try {
-      const testKey = "__some_random_key_you_are_not_going_to_use__";
+      const testKey = '__some_random_key_you_are_not_going_to_use__';
       secureLs.set(testKey, testKey);
       secureLs.remove(testKey);
       return true;

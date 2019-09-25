@@ -1,8 +1,8 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import reportError from "utils/crashReporter";
-import App from "./App";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import reportError from 'utils/crashReporter';
+import App from './App';
 
 const monitorError = () => {
   window.onerror = (message, file, line, column, errorObject) => {
@@ -13,4 +13,4 @@ const monitorError = () => {
 };
 
 monitorError();
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById('root'));

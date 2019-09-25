@@ -1,5 +1,5 @@
 {
-  "extends": ["airbnb", "plugin:prettier/recommended"],
+  "extends": ["airbnb", "plugin:prettier/recommended", "airbnb/hooks"],
   "parser": "babel-eslint",
   "env": {
     "browser": true,
@@ -7,7 +7,7 @@
     "es6": true,
     "mocha": true
   },
-  "plugins": ["react-hooks"],
+  "plugins": ["prettier", "react-hooks"],
   "settings": {
     "import/resolver": {
       "node": {
@@ -18,7 +18,6 @@
   },
   "rules": {
     "prettier/prettier": "error",
-
     "no-console": 0,
     "max-len": 0,
     "prefer-stateless-function": 0,
@@ -31,6 +30,7 @@
       }
     ],
     "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
     "react/forbid-prop-types": 0,
     "react/destructuring-assignment": [
       1,
